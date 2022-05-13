@@ -6,6 +6,7 @@ use App\Repository\CompanyRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Persistence\ManagerRegistry;
 
 #[ORM\Entity(repositoryClass: CompanyRepository::class)]
 class Company
@@ -93,5 +94,15 @@ class Company
         }
 
         return $this;
+    }
+
+    public function show(ManagerRegistry $doctrine, int $id): Response
+    {
+        $stop = $doctrine->getRepository(Stop::class)->find($id);
+
+        $tour = $stop->getStop();
+
+        dump(get_class($tour));
+        die();
     }
 }

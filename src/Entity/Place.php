@@ -167,4 +167,5 @@ class Place
 
         return $this;
     }
+
 }
