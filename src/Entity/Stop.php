@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\StopRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Persistence\ManagerRegistry;
 
 #[ORM\Entity(repositoryClass: StopRepository::class)]
 class Stop
@@ -61,5 +62,15 @@ class Stop
         $this->tour = $tour;
 
         return $this;
+    }
+
+    public function show(ManagerRegistry $doctrine, int $id): Response
+    {
+        $stop = $doctrine->getRepository(Company::class)->find($id);
+
+        $company = $stop->getCompany();
+
+        dump(get_class($company));
+        die();
     }
 }
