@@ -45,23 +45,6 @@ class TourModifyCommand extends Command
             $newMainEvent = $io->ask("New main event :", $tour->getMainEvent());
             $tour->setMainEvent($newMainEvent);
 
-            $newCapacity = $io->ask("New capacity", $tour->getCapacity());
-            $tour->setCapacity($newCapacity);
-
-            $newPrice = $io->ask("New price :", $tour->getPrice());
-            $tour->setPrice($newPrice);
-
-            $newStartDate = $io->ask("New start date :", $tour->getStartDate());
-            $tour->setStartDate($newStartDate);
-
-            $newStopDate = $io->ask("New stop date :", $tour->getStopDate());
-            $tour->setStopDate($newStopDate);
-
-            $newCompany = $io->ask("New company :", $tour->getCompany());
-            $tour->setCompany($newCompany);
-
-            $newStop = $io->ask("New Stop :", $tour->getStop());
-            $tour->setStop($newStop);
 
             $this->entityManager->flush();
 
