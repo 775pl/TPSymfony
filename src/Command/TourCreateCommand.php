@@ -3,12 +3,10 @@
 namespace App\Command;
 
 use App\Entity\Tour;
-use App\Repository\GateRepository;
 use App\Repository\TourRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -49,8 +47,8 @@ class TourCreateCommand extends Command
         $companyMainEvent = $input->getOption('mainEvent');
         $companyCapacity = $input->getOption('capacity');
         $companyPrice = $input->getOption('price');
-        $companyStartDate = getdate();
-        $companyStopDate = getdate();
+        $companyStartDate = $input->getOption('price'); //getdate();
+        $companyStopDate = $input->getOption('price'); //getdate();
         $companyCompany = $input->getOption('company');
         $companyStop = $input->getOption('stop');
 
